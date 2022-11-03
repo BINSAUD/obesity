@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <ul class="navbar-nav mr-auto">
+                <% if(userId && !isAdmin) {%>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/record">احصائيات الطلاب</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/s">الطلاب</a>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">إضافة طالب</a>
+                    </li>
+                    <%}%>
+                        <%if(isAdmin) {%>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/signup">إضافة مدرسة</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/schools">المدارس</a>
+                            </li>
+                            <%}%>
+            </ul>
+
+            <!--logout-->
+            <form action="/logout" method="POST">
+                <input type="submit" value="تسجيل خروج" class="btn btn-danger">
+            </form>
+
+        </div>
+    </div>
+</nav>

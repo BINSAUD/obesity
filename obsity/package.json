@@ -1,0 +1,28 @@
+{
+  "name": "obesity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Ayman AL-AWFI",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.6.5",
+    "xlsx": "^0.18.5"
+  },
+  "engines": {
+    "node": "^16.17.0",
+    "npm": "^8.15.0"
+  }
+}

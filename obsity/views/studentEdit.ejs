@@ -1,0 +1,131 @@
+<%- include('parts/header') %>
+<%- include('parts/navbar') %>
+
+<!--view the students-->
+<% if(students.length> 0){ %>
+  <% let c = 1; %> 
+  <table class="table caption-top" style="background-color: white;">
+  <thead>
+
+    <tr>
+      <th scope="col">رقم</th>
+      <th scope="col">الاسم</th>
+      <th scope="col">العمر</th>
+      <th scope="col">الطول</th>
+      <th scope="col">الوزن</th>
+      <th scope="col">تعديل</th>
+    </tr>
+
+  </thead>
+      <% students.forEach(student=> { %>
+        
+      <!--update-->
+      
+      <% if(student._id==idTask) {%>
+     
+        <form action="/s/update/<%=student._id%>?_method=PUT" method="POST">
+
+         
+           
+            <tbody>
+
+
+              <tr>
+                <th scope="row"> <%=  c++; %></th>
+               <td><input type="text" id="name" value="<%= student.name %>" name="name" /> </td> 
+                <td> <input type="text" id="age" value="<%= student.age %>" name="age" /></td>
+                <td><input type="text" id="hight" value="<%= student.hight %>" name="hight" /></td>
+                <td><input type="text" id="weghit" value="<%= student.weghit %>" name="weghit" /></td>
+                <td>  <!-- accept the change-->
+                  <button type="submit" style= "border: 0cm;" >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-check2"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
+                      />
+                    </svg>
+                  </button>
+                  <!-- cancel the change-->
+                  <a style="text-decoration: none" href="/s">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="black"
+                      class="bi bi-x-lg"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+                      />
+                    </svg>
+                  </a>
+        
+                  <!-- delete the student-->
+                  <a
+                    style="text-decoration: none"
+                    href="/s/delete/<%=student._id%>?_method=delete"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="black"
+                      class="bi bi-trash"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                      />
+                    </svg>
+                  </a>
+              </td>
+              </tr>
+            </tbody>
+
+
+           
+          
+
+
+
+        </form>
+
+
+
+      <% }else{ %>
+
+        
+          
+          
+        </tbody>
+            <tr>
+             
+              <th scope="row"> <%=  c++; %></th>
+              <td><%= student.name %></td>
+              <td><%= student.age %></td>
+              <td><%= student.hight %></td>
+              <td><%= student.weghit %></td>
+              
+       
+
+
+          </tbody>
+        
+      
+      <% }; %> <% }); %>
+    </table>
+
+  <% } %>
+
+  <%- include('parts/footer') %>

@@ -1,0 +1,153 @@
+<%- include('parts/header') %> <%- include('parts/navbar') %>
+
+<form method="post" action="/signup">
+  <section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem">
+            <div class="card-body p-5 text-center">
+              <div class="mb-md-5 mt-md-4 pb-5">
+              
+
+                <% if (success_createSchool.length > 0) { %>
+                
+                  <div class="p-3 mb-2 bg-success text-white">
+                    <%= success_createSchool %>
+                  </div>
+                
+                <% } %> <% if (error_school.length > 0) { %>
+                
+                  <div class="p-3 mb-2 bg-danger text-white">
+                    <%= error_school %>
+                  </div>
+                
+                <% } %>
+
+                <div class="mb-3">
+                  <label for="schoolName" class="form-label">اسم المدرسة</label>
+                  <input
+                    style="background-color: gray"
+                    type="text"
+                    class="form-control"
+                    id="schoolName"
+                    name="schoolName"
+                  />
+                  <% let schoolNameError = error_createSchool.find( err => err.param === "schoolName") %> 
+                  <% if (schoolNameError) { %>
+                      
+                      <p style="color: red;"><%= schoolNameError.msg %> </p>
+                  <% } %>
+                </div>
+
+                <div class="mb-3">
+                  <label for="location" class="form-label">موقع المدرسة</label>
+                  <input
+                    style="background-color: gray"
+                    type="text"
+                    class="form-control"
+                    id="location"
+                    name="location"
+                  />
+                  <% let locationError = error_createSchool.find( err => err.param === "location") %> 
+                  <% if (locationError) { %>
+                      
+                      <p style="color: red;"><%= locationError.msg %> </p>
+                  <% } %>
+                </div>
+
+                <div class="mb-3">
+                  <label for="username" class="form-label">اسم المشرف</label>
+                  <input
+                    style="background-color: gray"
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    aria-describedby="emailHelp"
+                    name="username"
+                  />
+                  <% let usernameError = error_createSchool.find( err => err.param === "username") %> 
+                  <% if (usernameError) { %>
+                      
+                      <p style="color: red;"><%= usernameError.msg %> </p>
+                  <% } %>
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label"
+                    >البريد الإلكتروني</label
+                  >
+                  <input
+                    style="background-color: gray"
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    aria-describedby="emailHelp"
+                    name="email"
+                  />
+                  <% let emailError = error_createSchool.find( err => err.param === "email") %> 
+                  <% if (emailError) { %>
+                      
+                      <p style="color: red;"><%= emailError.msg %> </p>
+                  <% } %>
+                </div>
+
+                <div class="mb-3">
+                  <label for="password" class="form-label">كلمة المرور</label>
+                  <input
+                    style="background-color: gray"
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                  />
+                  <% let passwordError = error_createSchool.find( err => err.param === "password") %> 
+                  <% if (passwordError) { %>
+                      
+                      <p style="color: red;"><%= passwordError.msg %> </p>
+                  <% } %>
+                </div>
+
+                <div class="form-check">
+                  <input
+                    style="background-color: gray"
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="flexRadioDefault1"
+                    value="male"
+                  />
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    بنين
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    style="background-color: gray"
+                    class="form-check-input"
+                    type="radio"
+                    name="gender"
+                    id="flexRadioDefault2"
+                    value="female"
+                    checked
+                  />
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    بنات
+                  </label>
+                 
+                </div>
+
+                <br /><br />
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">
+                  إضافة المدرسة
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+
+<%- include('parts/footer') %>
